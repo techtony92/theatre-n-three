@@ -10,6 +10,9 @@ export const CanvasTheatreConfig = {
                 z:types.number(5, {range:[-180,180], nudgeMultiplier:1}),
             })
         },
+        orbitControls:types.boolean(false,{
+            label:"enableControls"
+        }),
         shadows:types.boolean(false, {
             label:"ShadowsActive",
         }),

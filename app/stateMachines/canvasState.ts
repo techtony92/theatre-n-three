@@ -9,7 +9,8 @@ export const CanvasDefault:CanvasState = {
             y:0,
             z:5,
         }
-    }
+    },
+    orbitControls:false,
 }
 
 export function canvasReducer(state:CanvasState, action:{attribute:any, value:any}){
@@ -83,6 +84,12 @@ export function canvasReducer(state:CanvasState, action:{attribute:any, value:an
                 }
             }
        }
+     case "orbitControls":{
+        state = {
+            ...state,
+            orbitControls:value
+        }
+     }
     }
     return state;
 }

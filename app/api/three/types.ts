@@ -1,7 +1,7 @@
 import  { types } from "@theatre/core";
 
 export interface ThreeIndexAccess {
-    [index:string|number]:string|number|object;
+    [index:string|number]:string|number|object|boolean;
 }
 export interface CanvasState extends ThreeIndexAccess {
     camera: {
@@ -13,7 +13,8 @@ export interface CanvasState extends ThreeIndexAccess {
             y:number;
             z:number;
         }
-    }
+    },
+    orbitControls:boolean,
 }
 
 
