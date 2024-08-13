@@ -9,6 +9,7 @@ import {CanvasDefault} from "@/app/stateMachines/canvasState";
 import { STATE_MACHINES } from "@/app/stateMachines/threeStates";
 import { CanvasTheatreConfig } from "../theatre/objectConfiguations";
 import { PerspectiveCamera } from "@react-three/drei";
+import {OrbitControls} from "@react-three/drei";
 import { ModelLoader } from "./ModelLoader";
 import ModelProvider from "@/app/models/ModelProvider";
 import Basebuilding from "@/app/models/Base_building";
@@ -28,13 +29,13 @@ const CanvasProvider = forwardRef<HTMLCanvasElement>((props, ref) => {
         dispatch({attribute:'positionX', value: updates.camera.position.x});
         dispatch({attribute:'positionY', value: updates.camera.position.y});
         dispatch({attribute:'positionZ', value: updates.camera.position.z});
-            
+        dispatch({attribute:"orbitControls", value:updates.orbitControls})    
             
         })
         return () => {};
     }, []);
     
-    console.log(state.camera.fov)
+    console.log(state.orbitControls)
     // camera={{fov:state.camera.fov, far:state.camera.far, near: state.camera.near, position:[state.camera.position.x, state.camera.position.y, state.camera.position.z]}}
     return (
         <> 
@@ -52,6 +53,9 @@ const CanvasProvider = forwardRef<HTMLCanvasElement>((props, ref) => {
                 <ModelLoader>
                     <ModelProvider model={<Basebuilding />}/>
                 </ModelLoader>
+                {state.orbitControls === true && (
+                    <OrbitControls enableDamping={false}/>
+                )}
             </Canvas>
         </>
     )
