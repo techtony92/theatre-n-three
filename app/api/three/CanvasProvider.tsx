@@ -9,6 +9,9 @@ import {CanvasDefault} from "@/app/stateMachines/canvasState";
 import { STATE_MACHINES } from "@/app/stateMachines/threeStates";
 import { CanvasTheatreConfig } from "../theatre/objectConfiguations";
 import { PerspectiveCamera } from "@react-three/drei";
+import { ModelLoader } from "./ModelLoader";
+import ModelProvider from "@/app/models/ModelProvider";
+import Basebuilding from "@/app/models/Base_building";
 const CanvasProvider = forwardRef<HTMLCanvasElement>((props, ref) => {
     const theatre = new AnimationTheater();
     const canvasProject = theatre.createProject("CanvasMovie");
@@ -46,6 +49,9 @@ const CanvasProvider = forwardRef<HTMLCanvasElement>((props, ref) => {
                     <boxGeometry  />
                     <meshStandardMaterial />
                 </mesh>
+                <ModelLoader>
+                    <ModelProvider model={<Basebuilding />}/>
+                </ModelLoader>
             </Canvas>
         </>
     )

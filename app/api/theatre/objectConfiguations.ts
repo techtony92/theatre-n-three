@@ -5,9 +5,9 @@ export const CanvasTheatreConfig = {
             near: types.number(0.1, {range:[0.1,1]}),
             far:types.number(1000, {range:[0,1500]}),
             position: types.compound({
-                x:types.number(0, {range:[0,100]}),
-                y:types.number(0, {range:[0,100]}),
-                z:types.number(5, {range:[0,100]}),
+                x:types.number(0, {range:[-180,180], nudgeMultiplier:1}),
+                y:types.number(0, {range:[-180,180], nudgeMultiplier:1}),
+                z:types.number(5, {range:[-180,180], nudgeMultiplier:1}),
             })
         },
         shadows:types.boolean(false, {
