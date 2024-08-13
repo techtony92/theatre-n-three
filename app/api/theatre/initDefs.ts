@@ -4,7 +4,6 @@ studio.initialize();
 export class AnimationTheater{
     sheets:Array<theatre.ISheet> = [];
     constructor(){
-        console.log("Animation theatre Initalized");
     }
 
     createProject(name:string){
